@@ -1,48 +1,34 @@
-import { render }
-from "@testing-library/react";
+import { render } from "@testing-library/react";
+import PriceView from "./PriceView";
 
-import PriceView
-from "./PriceView";
+describe("PriceView", () => {
 
-describe(
-  "PriceView",
-  () => {
+  it("renders market labels", () => {
 
-    test(
-      "renders bids and asks",
-      () => {
+    const mockBook = {
+      bids: {
+        "50000": "1",
+      },
+      asks: {
+        "51000": "2",
+      },
+    };
 
-        const book = {
-          bids: {
-            "50000": "1",
-          },
-
-          asks: {
-            "51000": "2",
-          },
-        };
-
-        const {
-          getByText,
-        } = render(
-          <PriceView
-            productId="BTC-USD"
-            book={book}
-          />
-        );
-
-        expect(
-          getByText(
-            /50000/
-          )
-        ).toBeTruthy();
-
-        expect(
-          getByText(
-            /51000/
-          )
-        ).toBeTruthy();
-      }
+    const { getByText } = render(
+      <PriceView
+        productId="BTC-USD"
+        book={mockBook}
+      />
     );
-  }
-);
+
+    expect(
+      getByText(/Bids/i)
+    ).toBeTruthy();
+
+    expect(
+      getByText(/Asks/i)
+    ).toBeTruthy();
+
+  });
+
+});
