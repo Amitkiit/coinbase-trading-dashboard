@@ -1,0 +1,35 @@
+name: Deploy Trading Platform
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Backend
+        working-directory: ./backend/coinbase-trading-server
+        run: npm install
+
+      - name: Run Backend Tests
+        working-directory: ./backend/coinbase-trading-server
+        run: npm test -- --passWithNoTests
+
+      - name: Install Frontend
+        working-directory: ./frontend/client
+        run: npm install
+
+      - name: Run Frontend Tests
+        working-directory: ./frontend/client
+        run: npm test -- --passWithNoTests

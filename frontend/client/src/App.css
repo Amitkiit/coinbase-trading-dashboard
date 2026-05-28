@@ -1,0 +1,53 @@
+.mid-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.market-stat-card {
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.market-stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.bid-card {
+  background:
+    rgba(63, 185, 80, 0.08);
+}
+
+.ask-card {
+  background:
+    rgba(248, 81, 73, 0.08);
+}
+
+.spread-card {
+  background:
+    rgba(88, 166, 255, 0.08);
+}
+
+.market-label {
+  color: #8b949e;
+  font-size: 0.9rem;
+}
+
+.market-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.bid-text {
+  color: #3fb950;
+}
+
+.ask-text {
+  color: #f85149;
+}
+
+.spread-text {
+  color: #58a6ff;
+}
